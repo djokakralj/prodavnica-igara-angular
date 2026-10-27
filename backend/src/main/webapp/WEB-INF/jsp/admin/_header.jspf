@@ -1,0 +1,34 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Prodavnica igara</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
+</head>
+<body>
+<header class="topbar">
+  <div><strong>Prodavnica igara Admin panel</strong></div>
+  <div>
+    <span>${sessionScope.korisnickoIme}</span>
+    <form class="inline" method="post" action="${pageContext.request.contextPath}/logout">
+      <button type="submit" class="secondary">Odjava</button>
+    </form>
+  </div>
+</header>
+<div class="layout">
+  <nav class="sidebar">
+    <a href="${pageContext.request.contextPath}/admin">Pregled</a>
+    <a href="${pageContext.request.contextPath}/admin/igre">Igre</a>
+    <a href="${pageContext.request.contextPath}/admin/izdavaci">Izdavaci</a>
+    <a href="${pageContext.request.contextPath}/admin/platforme">Platforme</a>
+    <a href="${pageContext.request.contextPath}/admin/narudzbine">Narudzbine</a>
+    <a href="${pageContext.request.contextPath}/admin/kupci">Kupci</a>
+  </nav>
+  <main>
+    <c:if test="${not empty poruka}">
+      <div class="poruka-ok">${poruka}</div>
+    </c:if>
+    <c:if test="${not empty greska}">
+      <div class="greska">${greska}</div>
+    </c:if>
